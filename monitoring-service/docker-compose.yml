@@ -1,0 +1,64 @@
+version: '3.7'
+
+services:
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.4.0
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - monitoring-network
+
+  fluentbit:
+    container_name: fluentbit
+    image: fluent/fluent-bit:1.3.1
+    volumes:
+      - ../config/fluentbit/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf
+    depends_on:
+      - elasticsearch
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+    networks:
+      - monitoring-network
+
+  apm-server:
+    container_name: apm-server
+    image: docker.elastic.co/apm/apm-server:7.4.0
+    depends_on:
+      - elasticsearch
+      - fluentbit
+    volumes:
+      - ../config/apm-server/apm-server.yml:/etc/apm-server/apm-server.yml:ro
+    ports:
+      - "8200:8200"
+    networks:
+      - monitoring-network
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: fluentbit
+        tag: apm-server
+
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:7.4.0
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+      - fluentbit
+    networks:
+      - monitoring-network
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: fluentbit
+        tag: kibana
+
+networks:
+  monitoring-network:
+

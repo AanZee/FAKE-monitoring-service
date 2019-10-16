@@ -1,0 +1,87 @@
+# Default values for efk.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+fluent-bit:
+  enabled: true
+
+  rbac:
+    create: false
+  serviceAccount:
+    create: false
+
+  backend:
+    type: es
+
+  rawConfig: |
+    [SERVICE]
+        Flush        5
+        Daemon       Off
+        Log_Level    debug
+
+    [INPUT]
+        Name   forward
+        Listen 0.0.0.0
+        Port   24224
+
+    [OUTPUT]
+        Name  es
+        Match **
+        Host  elasticsearch-master
+        Port  9200
+apm-server:
+  enabled: true
+  kind: Deployment
+  image:
+    repository: docker.elastic.co/apm/apm-server
+    tag: 7.4.0
+    pullPolicy: IfNotPresent
+
+  # For now we don't use any authorisation/authentication
+  rbac:
+    create: false
+  serviceAccount:
+    create: false
+
+  service:
+    enabled: true
+
+  config:
+    apm-server:
+      rum.enabled: true
+
+    output.file.enabled: false
+    output:
+      elasticsearch:
+        hosts: ["elasticsearch-master:9200"]
+
+
+elasticsearch:
+  enabled: true
+  # Permit co-located instances for solitary minikube virtual machines.
+  antiAffinity: "soft"
+
+  # Shrink default JVM heap.
+  esJavaOpts: "-Xmx128m -Xms128m"
+
+  # Allocate smaller chunks of memory per pod.
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "512M"
+    limits:
+      cpu: "1000m"
+      memory: "512M"
+
+  # Request smaller persistent volumes.
+  volumeClaimTemplate:
+    accessModes: [ "ReadWriteOnce" ]
+    storageClassName: "hostpath"
+    resources:
+      requests:
+        storage: 100M
+
+kibana:
+  enabled: true
+
+  ingress:
+    enabled: false

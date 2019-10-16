@@ -1,0 +1,15 @@
+dependencies:
+- name: fluent-bit
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: 2.7.2
+- name: apm-server
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: 2.1.4
+- name: kibana
+  repository: https://helm.elastic.co
+  version: 7.4.0
+- name: elasticsearch
+  repository: https://helm.elastic.co
+  version: 7.4.0
+digest: sha256:8ea0d8aa21ed4b7402f22c774b7c8d8eeb4c439c2d1c5ea21a79d4ae23c28165
+generated: "2019-10-15T11:50:17.195017+02:00"
