@@ -33,7 +33,7 @@ questions:
         type: string
         label: APM-Server Image Tag
       - variable: kibana.image.repository
-        default: "docker.elastic.co/kibana/kibana-oss"
+        default: "docker.elastic.co/kibana/kibana"
         description: "Kibana image name"
         type: string
         label: Kibana Image Name
@@ -43,7 +43,7 @@ questions:
         type: string
         label: Kibana Image Tag
       - variable: elasticsearch.image.repository
-        default: "docker.elastic.co/elasticsearch/elasticsearch-oss"
+        default: "docker.elastic.co/elasticsearch/elasticsearch"
         description: "Elasticsearch image name"
         type: string
         label: ElasticSearch Image Name
