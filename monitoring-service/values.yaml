@@ -67,11 +67,8 @@ elasticsearch:
       cpu: "25m"
       memory: "512Mi"
 
-  volumeClaimTemplate:
-    accessModes: [ "ReadWriteOnce" ]
-    resources:
-      requests:
-        storage: 10Gi
+  persistence:
+    enabled: false
 
 kibana:
   enabled: true
