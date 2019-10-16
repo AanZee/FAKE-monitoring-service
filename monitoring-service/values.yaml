@@ -58,8 +58,19 @@ apm-server:
 elasticsearch:
   enabled: true
 
+  antiAffinity: "soft"
+
+  resources:
+    limits:
+      cpu: "1"
+    requests:
+      cpu: "25m"
+      memory: "512Mi"
+
 kibana:
   enabled: true
 
   ingress:
-    enabled: false
+    enabled: true
+    hosts:
+      - "xip.io"
