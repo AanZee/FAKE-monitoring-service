@@ -8,15 +8,16 @@ fluent-bit:
     type: es
     es:
       host: elasticsearch-master
+      time_key: es_time
   parsers:
     json:
       -
         name: docker
         timeKeep: On
-        timeKey: time
+        timeKey: fluentbit_time
         timeFormat: "%Y-%m-%dT%H:%M:%S.%L"
         extraEntries: |
-             Decode_Field_As   escaped    log
+          Decode_Field_As   escaped    log
 apm-server:
   enabled: true
   kind: Deployment
