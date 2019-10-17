@@ -7,23 +7,6 @@ fluent-bit:
   backend:
     type: es
 
-  rawConfig: |
-    [SERVICE]
-        Flush        5
-        Daemon       Off
-        Log_Level    debug
-
-    [INPUT]
-        Name   forward
-        Listen 0.0.0.0
-        Port   24224
-
-    [OUTPUT]
-        Name  es
-        Match **
-        Host  elasticsearch-master
-        Port  9200
-
 apm-server:
   enabled: true
   kind: Deployment
