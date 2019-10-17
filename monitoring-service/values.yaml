@@ -13,11 +13,10 @@ fluent-bit:
     json:
       -
         name: docker
-        timeKeep: On
-        timeKey: fluentbit_time
+        timeKeep: Off
+        Time_Key: time
         timeFormat: "%Y-%m-%dT%H:%M:%S.%L"
-        extraEntries: |
-          Decode_Field_As   escaped    log
+
 apm-server:
   enabled: true
   kind: Deployment
