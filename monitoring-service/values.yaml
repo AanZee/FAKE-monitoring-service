@@ -6,6 +6,8 @@ fluent-bit:
 
   backend:
     type: es
+    es:
+      host: elasticsearch-master
 
 apm-server:
   enabled: true
