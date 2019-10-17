@@ -41,6 +41,12 @@ Due to the complex nature of Kuberenetes not everything can be properly tested l
   - `helm repo add elastic https://helm.elastic.co`
 - Update dependencies by using in the monitoring servcice folder
   - `helm dependency update`
+- Install the service on your local K8S cluster using the name fake
+  - `helm install --debug ./monitoring-service --name fake`
+- Expose the port for Kibana on your host machine
+  - `kubectl port-forward <kibana-docker-id> 5601`
+- Delete the service to free up resources
+  - `helm del --purge fake `
 
 ## Rancher Interaction
 To use our fancy new service as an app in your fancy new Rancher setup you have to do the following:
