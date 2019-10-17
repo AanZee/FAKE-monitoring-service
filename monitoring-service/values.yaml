@@ -8,9 +8,11 @@ fluent-bit:
     type: es
     es:
       host: elasticsearch-master
-      time_key: es_time
   filter:
-    mergeJSONLog: false
+    mergeLogKey: values
+    extraEntries:
+      - Reserve_Data On
+      - Regex_Parser kube-tag
   parsers:
     json:
       -
