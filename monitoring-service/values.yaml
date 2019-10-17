@@ -8,8 +8,11 @@ fluent-bit:
     type: es
     es:
       host: elasticsearch-master
+      logstash_prefix: ""
+      index: ""
   filter:
-    mergeLogKey: values
+    mergeLogKey: logstash_prefix
+
     extraEntries:
       - Reserve_Data On
       - Regex_Parser kube-tag
