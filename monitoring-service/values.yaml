@@ -9,6 +9,8 @@ fluent-bit:
     es:
       host: elasticsearch-master
       time_key: es_time
+  filter:
+    mergeJSONLog: false
   parsers:
     json:
       -
