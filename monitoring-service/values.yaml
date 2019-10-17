@@ -73,6 +73,9 @@ elasticsearch:
 kibana:
   enabled: true
 
+  service:
+    port: 443
+
   ingress:
     enabled: true
     hosts:
