@@ -4,11 +4,6 @@
 fluent-bit:
   enabled: true
 
-  rbac:
-    create: false
-  serviceAccount:
-    create: false
-
   backend:
     type: es
 
@@ -28,6 +23,7 @@ fluent-bit:
         Match **
         Host  elasticsearch-master
         Port  9200
+
 apm-server:
   enabled: true
   kind: Deployment
@@ -53,7 +49,6 @@ apm-server:
     output:
       elasticsearch:
         hosts: ["elasticsearch-master:9200"]
-
 
 elasticsearch:
   enabled: true
