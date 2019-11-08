@@ -1,7 +1,7 @@
 dependencies:
 - name: fluent-bit
   repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 2.7.2
+  version: 2.7.3
 - name: apm-server
   repository: https://kubernetes-charts.storage.googleapis.com/
   version: 2.1.4
@@ -11,5 +11,8 @@ dependencies:
 - name: elasticsearch
   repository: https://helm.elastic.co
   version: 7.4.0
-digest: sha256:8ea0d8aa21ed4b7402f22c774b7c8d8eeb4c439c2d1c5ea21a79d4ae23c28165
-generated: "2019-10-15T11:50:17.195017+02:00"
+- name: metricbeat
+  repository: https://helm.elastic.co
+  version: 7.4.0
+digest: sha256:1459767bd9acf05f53a6acff85c2fdf709de516bc8d43e2b525c0e995d5dcd4f
+generated: "2019-10-18T23:09:49.354819+02:00"

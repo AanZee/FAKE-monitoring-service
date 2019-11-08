@@ -41,6 +41,9 @@ apm-server:
   service:
     enabled: true
 
+  ingress:
+    enabled: true
+
   config:
     apm-server:
       rum.enabled: true
@@ -75,3 +78,7 @@ kibana:
     enabled: true
     hosts:
       - "xip.io"
+
+metricbeat:
+  enabled: true
+

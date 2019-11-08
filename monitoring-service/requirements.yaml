@@ -15,3 +15,7 @@ dependencies:
     version: ^7.4.0
     repository: https://helm.elastic.co
     condition: elasticsearch.enabled
+  - name: metricbeat
+    version: ^7.4.0
+    repository: https://helm.elastic.co
+    condition: metricbeat.enabled
