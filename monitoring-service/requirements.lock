@@ -11,5 +11,8 @@ dependencies:
 - name: elasticsearch
   repository: https://helm.elastic.co
   version: 7.4.1
-digest: sha256:8ea0d8aa21ed4b7402f22c774b7c8d8eeb4c439c2d1c5ea21a79d4ae23c28165
-generated: "2019-11-12T15:18:11.258873+01:00"
+- name: metricbeat
+  repository: https://helm.elastic.co
+  version: 7.4.1
+digest: sha256:1459767bd9acf05f53a6acff85c2fdf709de516bc8d43e2b525c0e995d5dcd4f
+generated: "2019-11-12T14:52:08.663712+01:00"
