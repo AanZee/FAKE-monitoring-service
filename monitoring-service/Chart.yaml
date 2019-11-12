@@ -1,6 +1,6 @@
 apiVersion: v1
 name: monitoring-service
-version: 1.1.0
+version: 1.1.1
 description: A monitoring stack (FAKEM) used to monitor our various services
 icon: https://d301sr5gafysq2.cloudfront.net/f306cfbb5c90/img/repo-avatars/default.png
 keywords:
