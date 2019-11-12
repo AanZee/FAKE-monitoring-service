@@ -79,6 +79,3 @@ kibana:
     hosts:
       - "xip.io"
 
-metricbeat:
-  enabled: true
-
