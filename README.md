@@ -5,10 +5,12 @@ This repo contains a HELM Chart capable of spinning up a cluster consisting of t
 - [APM Server](https://www.elastic.co/products/apm)
 - [Kibana](https://www.elastic.co/products/kibana)
 - [ElasticSearch](https://www.elastic.co/products/elasticsearch)
+- [Metricbeats](https://www.elastic.co/products/metricbeats)
 
 This allows us to do the following:
 - Collect and parse logs across all our pods and the internal kubernetes logs (Fluent Bit)
 - Collect metrics across various application (APM Server) 
+- Collect metrics from the K8S cluster
 - Track users through the the various APIs (APM Server)
 - Allow various dahsboards to be build (Kibana)
 - Allow reports to be generated (Kibana)
@@ -50,7 +52,7 @@ Due to the complex nature of Kuberenetes not everything can be properly tested l
 
 ## Rancher Interaction
 To use our fancy new service as an app in your fancy new Rancher setup you have to do the following:
-- Add the github repo as a Rancher Catalog (**Do note that itbucket repo's don't seem to work due to some internal rancher issue**)
+- Add the github repo as a Rancher Catalog (**Do note that Bitbucket repo's don't seem to work due to some internal rancher issue**)
 - Launch the app
 - Change the Kibana Ingress to the preferred value
 

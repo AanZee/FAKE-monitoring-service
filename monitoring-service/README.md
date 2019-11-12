@@ -164,3 +164,5 @@ The following table lists the configurable parameters of the elasticsearch chart
 | `master.persistence.accessMode`   | Master persistent Access Mode                                       | `ReadWriteOnce`                                 |
 | `master.antiAffinity`             | Data anti-affinity policy                                           | `soft`                                          |
 | `rbac.create`                     | Create service account and ClusterRoleBinding for Kubernetes plugin | `false`                                         |
+
+## Metricbeats
