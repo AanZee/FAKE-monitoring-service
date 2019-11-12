@@ -53,6 +53,17 @@ apm-server:
       elasticsearch:
         hosts: ["elasticsearch-master:9200"]
 
+kibana:
+  enabled: true
+
+  service:
+    port: 443
+
+  ingress:
+    enabled: true
+    hosts:
+      - "xip.io"
+
 elasticsearch:
   enabled: true
 
@@ -67,17 +78,6 @@ elasticsearch:
 
   persistence:
     enabled: false
-
-kibana:
-  enabled: true
-
-  service:
-    port: 443
-
-  ingress:
-    enabled: true
-    hosts:
-      - "xip.io"
 
 metricbeat:
   enabled: true
