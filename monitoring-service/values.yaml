@@ -29,7 +29,7 @@ apm-server:
   kind: Deployment
   image:
     repository: docker.elastic.co/apm/apm-server
-    tag: 7.4.0
+    tag: 7.4.1
     pullPolicy: IfNotPresent
 
   # For now we don't use any authorisation/authentication
