@@ -43,6 +43,8 @@ apm-server:
 
   ingress:
     enabled: true
+    hosts:
+      - "xip.io"
 
   config:
     apm-server:
